@@ -1,16 +1,15 @@
-resource "google_compute_instance" "custom_subnet" {
+resource "google_compute_instance" "minecraft-vm" {
   name         = "my-vm-instance"
   tags         = ["allow-ssh"]
-  zone         = "europe-west1-b"
+  zone         = "us-east1"
   machine_type = "e2-small"
   metadata = {
-    # Shuts down Apache server
-    shutdown-script = file("${path.module}/shutdown-script.sh")
+
   }
 
   network_interface {
-    network    = google_compute_network.custom.id
-    subnetwork = google_compute_subnetwork.custom.id
+    network    = google_compute_network.minecraft-net.id
+    subnetwork = google_compute_subnetwork.minecraft-subnet.id
   }
   boot_disk {
     initialize_params {
