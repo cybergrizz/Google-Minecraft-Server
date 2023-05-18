@@ -10,5 +10,6 @@ terraform {
 }
 
 provider "google" {
-  # Configuration options
+ credentials =file(var.credentials_file)
+ region = var.region
 }
