@@ -10,6 +10,6 @@ terraform {
 }
 
 provider "google" {
- credentials =file(var.credentials_file)
+ credentials ="./gcpkeys.json"
  region = var.region
 }
