@@ -38,3 +38,4 @@ override.tf.json
 
 ### Credentials for GCP
 gcpkeys.json
+*.json*
